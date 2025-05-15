@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foundation Bank</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(to right, #003366, #004080);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+      animation: slideEffect 6s linear infinite;
+    }
+
+    @keyframes slideEffect {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    nav {
+      background-color: #002244;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section:nth-child(even) {
+      background-color: #e9ecef;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+
+    .feature {
+      flex: 1 1 30%;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+
+    .cta {
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .cta button {
+      background-color: white;
+      color: #004080;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta button:hover {
+      background-color: #ddd;
+    }
+
+    footer {
+      background-color: #001122;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Simple animation on scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div><strong>Foundation Bank</strong></div>
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#cta">Open Account</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Welcome to Foundation Bank</h1>
+    <p>Secure, innovative, and customer-focused digital banking you can trust.</p>
+  </header>
+
+  <section class="section fade-in" id="features">
+    <h2>Why Choose Us</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>24/7 Support</h3>
+        <p>We are always here to help you, no matter the time of day.</p>
+      </div>
+      <div class="feature">
+        <h3>Secure Transactions</h3>
+        <p>Military-grade encryption ensures your money stays safe.</p>
+      </div>
+      <div class="feature">
+        <h3>Smart Mobile App</h3>
+        <p>Manage your money on the go with our powerful mobile platform.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-in" id="about">
+    <h2>About Foundation Bank</h2>
+    <p>We are a forward-thinking digital bank redefining what it means to bank online. Our mission is to empower individuals and small businesses with the tools to build lasting financial foundations.</p>
+  </section>
+
+  <section class="cta fade-in" id="cta">
+    <h2>Open Your Free Account Today</h2>
+    <p>Join thousands of customers who bank smarter with Foundation Bank.</p>
+    <br />
+    <button onclick="alert('Account opening feature coming soon!')">Get Started</button>
+  </section>
+
+  <footer>
+    &copy; 2025 Foundation Bank. All rights reserved.
+  </footer>
+
+  <script>
+    // Scroll animation
+    const faders = document.querySelectorAll('.fade-in');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    faders.forEach(fader => {
+      observer.observe(fader);
+    });
+  </script>
+</body>
+</html>
+
